@@ -20,6 +20,7 @@
 
 <script lang="ts">
 import axios from "axios";
+import router from "@/router";
 
 export default {
   data() {
@@ -43,7 +44,8 @@ export default {
 
         localStorage.setItem("accessToken", accessToken);
 
-        console.log(response.message)
+        router.push("/home")
+
       } catch (error) {
         this.password = "";
         console.error(error);

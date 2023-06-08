@@ -8,9 +8,9 @@
 <script lang="ts">
 import LoginForm from '@/components/LoginForm.vue';
 
-export default ({
+export default {
   components: {
     LoginForm
   }
-});
+};
 </script>

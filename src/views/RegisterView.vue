@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts">
-import RegisterForm from '@/components/GuestHome.vue';
+import RegisterForm from '@/components/RegisterForm.vue';
 
-export default ({
+export default {
   components: {
     RegisterForm
   }
-});
+};
 </script>

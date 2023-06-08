@@ -20,7 +20,7 @@ interface Book {
   quantity: number;
 }
 
-export default ({
+export default {
   data() {
     return {
       books: [] as Book[],
@@ -40,5 +40,5 @@ export default ({
         });
     },
   },
-});
+};
 </script>

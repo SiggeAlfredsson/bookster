@@ -10,15 +10,14 @@
       
       <button type="submit">Register</button>
     </form>
-    <p>Already have an account? Sign in<router-link to="/login">here!</router-link></p>
+    <p>Already have an account? Sign in <router-link to="/login">here!</router-link></p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
 import axios from "axios";
 
-export default defineComponent({
+export default {
   data() {
     return {
       username: '',
@@ -40,5 +39,5 @@ export default defineComponent({
       }
     }
   }
-});
+};
 </script>

@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "jwt-decode": "^3.1.2",
     "vue": "^3.3.2",
-    "vue-router": "^4.2.0"
+    "vue-jwt-decode": "^0.1.0",
+    "vue-router": "^4.2.0",
+    "vuejs-jwt": "^1.1.0"
   },
   "devDependencies": {
     "@tsconfig/node18": "^2.0.1",
