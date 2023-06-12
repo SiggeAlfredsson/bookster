@@ -1,21 +1,14 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import Header from "./components/Header.vue"
 </script>
 
 <template>
   <header>
-
-    <div class="wrapper">
-      <h2>My app</h2>
-      <nav>
-        <RouterLink to="/login">Login</RouterLink>
-        <br>
-        <RouterLink to="/register">Register</RouterLink>
-        <br>
-        <RouterLink to="/home">Home</RouterLink>
-      </nav>
-    </div>
+  <Header/> 
+  <!-- OK? -->
   </header>
 
-  <RouterView />
+  <RouterView /> 
+  <!-- Paths dont work without routerView -->
 </template>

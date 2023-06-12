@@ -1,12 +1,12 @@
 <template>
   <div>
-    <h1>Welcome to the Login Page!</h1>
+    <h1>Login Page!</h1>
     <LoginForm />
   </div>
 </template>
 
 <script lang="ts">
-import LoginForm from '@/components/LoginForm.vue';
+import LoginForm from "@/components/LoginForm.vue";
 
 export default {
   components: {
