@@ -90,7 +90,7 @@ export default {
 .container {
   /* border: 1px solid red; */
   width: 550px;
-  height: 450px;
+  height: 460px;
 
   display: flex;
   flex-direction: column;
@@ -106,7 +106,7 @@ header {
 
   width: 90%;
   height: 80px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   /* border: 1px solid blue; */
   background-color: gray;
   display: flex;
@@ -174,10 +174,6 @@ header {
 
 }
 
-/* I know you can move the placeholder like this, but i liked how you start typing where the placeholder is instead of to the left of the placeholder, looks goofy*/
-/* ::placeholder {
-  padding-left: 25px;
-} */
 
 /* space beetween the two inputs */
 #username {

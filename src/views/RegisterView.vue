@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>Register Page</h1>
+  <div class="container">
     <RegisterForm />
   </div>
 </template>
@@ -14,3 +13,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+</style>
