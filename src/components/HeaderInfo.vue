@@ -22,9 +22,9 @@
     computed: {
       userValue() {
         if(this.username === null) {
-          return "guest";
+          return "guest...";
         } else {
-          return this.role?.toLowerCase() + " " + this.username 
+          return this.role?.toLowerCase() + ", " + this.username 
         }
       }
     }

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Login Page!</h1>
+  <div class="container">
+    <!-- <h1>Login Page!</h1> what to do here?-->
     <LoginForm />
   </div>
 </template>
@@ -14,3 +14,15 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+.container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+</style>

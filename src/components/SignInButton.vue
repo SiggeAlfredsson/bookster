@@ -16,6 +16,8 @@ export default {
 
 <style scoped>
 .sign-in-button {
-
+  width: 130px;
+  height: 40px;
+  font-size: 25px;
 }
 </style>
