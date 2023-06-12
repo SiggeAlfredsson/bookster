@@ -169,8 +169,15 @@ header {
   outline: none;
   border: none;
   height: 40px;
-  border-left: 25px solid white;
+  padding-left: 25px;
+  font-size: 20px;
+
 }
+
+/* I know you can move the placeholder like this, but i liked how you start typing where the placeholder is instead of to the left of the placeholder, looks goofy*/
+/* ::placeholder {
+  padding-left: 25px;
+} */
 
 /* space beetween the two inputs */
 #username {

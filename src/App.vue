@@ -5,14 +5,28 @@
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import Header from "./components/Header.vue"
+import HeaderComponent from "./components/Header.vue"
 </script>
 
 <template>
   <header>
-  <Header/> 
+  <HeaderComponent/> 
   <!-- OK? -->
   </header>
+
+  <div v-if="$route.path === '/' ">
+    <nav>
+      <router-link to="/home">
+      <button class="guest-button">Home</button>
+      </router-link>
+      <router-link to="/login">
+      <button class="guest-button">Login</button>
+      </router-link>
+      <router-link to="/register">
+      <button class="guest-button">Register</button>
+      </router-link>
+    </nav>
+  </div>
 
   <RouterView /> 
   <!-- Paths dont work without routerView -->

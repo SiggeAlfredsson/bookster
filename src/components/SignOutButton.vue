@@ -18,6 +18,15 @@ export default {
 
 <style scoped>
 .sign-out-button {
+  width: 130px;
+  height: 40px;
+  font-size: 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
+.sign-out-button:hover {
+  background-color: rgb(233, 233, 233);
 }
 </style>
