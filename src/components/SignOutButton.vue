@@ -18,6 +18,6 @@ export default {
 
 <style scoped>
 .sign-out-button {
-  /* Add your button styles here */
+
 }
 </style>

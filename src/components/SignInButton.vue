@@ -16,6 +16,6 @@ export default {
 
 <style scoped>
 .sign-in-button {
-  /* Add your button styles here */
+
 }
 </style>
