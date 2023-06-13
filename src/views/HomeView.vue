@@ -16,8 +16,8 @@
   <div>
     <!-- Search input here or in component? GPT 3.5s lösning på hur man har search här via events -->
     <SearchQuery @searchQueryUpdated="handleSearchQueryUpdate" />
-    <UserHome v-if="getLocalStorage('role') === 'USER'" />
-    <AdminHome v-else-if="getLocalStorage('role') === 'ADMIN' " />
+    <UserHome :searchQuery="searchQuery" v-if="getLocalStorage('role') === 'USER'" />
+    <AdminHome :searchQuery="searchQuery" v-else-if="getLocalStorage('role') === 'ADMIN' " />
     <GuestHome :searchQuery="searchQuery" v-else/>
   </div>
 </template>
@@ -36,7 +36,7 @@ export default {
   components: {
     GuestHome,
     SearchQuery,
-    // UserHome,
+    UserHome,
     // AdminHome
   },
   data() {

@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <div class="book-list">
       <ul>
           <!-- Making the titles the same way im making the list -->
@@ -24,6 +23,7 @@
 
 <script lang="ts">
 import axios from 'axios';
+import SearchQuery from './SearchQuery.vue';
 
 interface Book {
   title: string;
@@ -32,6 +32,9 @@ interface Book {
 }
 
 export default {
+  components: {
+
+  },
   props: {
     searchQuery: {
       type: String,
