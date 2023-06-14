@@ -8,7 +8,7 @@
             <div class="book-author">Author</div>
             <div class="book-availability">Availability</div>
           </div>
-        <li v-for="book in books" :key="book.title">
+        <li v-for="book in books">
           <div class="book-info">
             <div class="book-title">{{ book.title }}</div>
             <div class="book-author">{{ book.author }}</div>
@@ -102,7 +102,8 @@ export default {
   background-color: lightgray;
   padding: 30px;
   margin: 1px;
-  width: 750px;
+  width: 200px;
+  height: 10px;
   /* fix width to scale */
 
   display: flex;

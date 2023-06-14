@@ -4,7 +4,7 @@
  -->
 
 
-<template>
+ <template>
   <div>
     <div class="book-list">
       <ul>
@@ -14,8 +14,9 @@
           <div class="book-author">Author</div>
           <div class="book-availability">Availability</div>
           <div class="book-order">Order</div>
+          <div class="book-action">Action</div>
         </div>
-        <li v-for="book in books">
+        <li v-for="book in books" >
           <div class="book-info">
             <div class="book-title">{{ book.title }}</div>
             <div class="book-author">{{ book.author }}</div>
@@ -26,6 +27,10 @@
               <input class="number-input" type="number" v-model="book.orderQuantity" readonly>
               <button class="add-button" @click="addOrderQuantity(book)">+</button>
               <button class="place-order-button" @click="placeOrder(book)">Order</button>
+            </div>
+            <div class="book-action">
+              <button class="edit-button" @click="editBook(book)">Edit</button>
+              <button class="delete-button" @click="deleteBook(book)">Delete</button>
             </div>
           </div>
         </li>
@@ -124,6 +129,12 @@ export default {
           })
       }
     },
+    editBook(book: Book) {
+
+    },
+    deleteBook(book: Book) {
+
+    }
   },
 };
 </script>
@@ -146,7 +157,8 @@ export default {
 .book-title,
 .book-author,
 .book-availability,
-.book-order {
+.book-order,
+.book-action {
   background-color: lightgray;
   padding: 30px;
   margin: 1px;
