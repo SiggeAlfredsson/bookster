@@ -48,13 +48,7 @@
 
 <script lang="ts">
 import axios from 'axios';
-
-interface Book {
-  title: string;
-  author: string;
-  quantity: number;
-  orderQuantity: number;
-}
+import Book from "@/model/Book";
 
 export default {
   components: {

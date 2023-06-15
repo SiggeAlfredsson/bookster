@@ -35,11 +35,9 @@
 
 <script lang="ts">
 import axios from 'axios';
+import User from "@/model/User"
 
-interface User {
-  username: string;
-  role: string;
-}
+
 
 export default {
   components: {

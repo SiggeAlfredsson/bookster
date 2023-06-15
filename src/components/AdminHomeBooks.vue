@@ -47,14 +47,9 @@
 
 <script lang="ts">
 import axios from 'axios';
+import Book from "@/model/Book";
 // import BookActionModal from './BookActionModal.vue';
 
-interface Book {
-  title: string;
-  author: string;
-  quantity: number;
-  orderQuantity: number;
-}
 
 export default {
   components: {

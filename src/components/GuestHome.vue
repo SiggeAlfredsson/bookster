@@ -31,13 +31,10 @@
 
 <script lang="ts">
 import axios from 'axios';
+import Book from "@/model/Book";
+
 // import SearchQuery from './SearchQuery.vue';
 
-interface Book {
-  title: string;
-  author: string;
-  quantity: number;
-}
 
 export default {
   components: {
