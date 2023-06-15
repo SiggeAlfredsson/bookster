@@ -1,6 +1,7 @@
 <!-- 
 
-  Fråga jakob om orderquantity, den resetas varje order som tas..
+  This started as a copy of UserHome component, so the implementation is really alike. Insted of book, there is user.
+
  -->
 
 

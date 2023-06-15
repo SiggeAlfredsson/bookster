@@ -1,10 +1,16 @@
+<!-- 
+
+  Just a text input, a search bar to display when able to search, either books or users.
+
+  GPT helped me a little to make emotSearchQuery work.. OK or redo not 100 how it works atm?
+
+ -->
+
 <template>
   <input class="input" type="text" placeholder="Search query..." v-model="query" @input="emitSearchQuery">
 </template>
 
-
-
-<!-- Need to add timer, check old project -->
+<!-- Need to add timer, check weather app project -->
 <script lang="ts">
 export default {
   data() {

@@ -1,3 +1,10 @@
+<!-- 
+
+  Basic register form. Feel like its a little close to the LoginForm. Maybe could divide into smaller components? Sends a axios post to api with details.
+  It does not log in after, but it pushes the user to the login page.
+
+ -->
+
 <template>
   <div class="container">
     <header>

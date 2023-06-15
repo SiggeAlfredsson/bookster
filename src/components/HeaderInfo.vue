@@ -1,3 +1,11 @@
+
+<!-- 
+
+    Child component to Header (rename to headerComponent ?).
+    Checks the username and role, if they exist they combined and returns, else just return guest, to be displayed in top right corner while on homepage
+
+ -->
+
 <template>
 
 <p>Browsing as  {{ userValue }}</p>

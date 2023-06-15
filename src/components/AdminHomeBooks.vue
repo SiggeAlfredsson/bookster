@@ -1,11 +1,17 @@
 <!-- 
 
-  Fråga jakob om orderquantity, den resetas varje order som tas..
+  Same as UserHome....but also loads additional column for BookActionModal with two buttons to show modals,
+  Will add a child component to add new book (also a modal).
+  The modal(s) is under construction..
+  
+  
+
  -->
 
 
  <template>
   <div>
+    <!-- <BookActionModal/> -->
     <div class="book-list">
       <ul>
         <!-- Making the titles the same way im making the list, OK to have same class on two divs? -->
@@ -41,6 +47,7 @@
 
 <script lang="ts">
 import axios from 'axios';
+// import BookActionModal from './BookActionModal.vue';
 
 interface Book {
   title: string;
@@ -51,7 +58,7 @@ interface Book {
 
 export default {
   components: {
-
+    // BookActionModal
   },
   props: {
     searchQuery: {

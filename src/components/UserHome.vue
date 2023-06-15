@@ -1,6 +1,18 @@
 <!-- 
 
-  Fråga jakob om orderquantity, den resetas varje order som tas..
+  Component that is loaded in HomeView only when the user is signed in as a "USER".
+  Copy of GuestHome but added a placeOrder function, and an input for how much to order.
+  The input can not go below 0 and can not go over the availability of the book in question.
+  After placeorder method, instead of reloading the page, all the data is fetched from the api again, which reloads the stock of the books,
+  but also resets each input value(bad).
+  Search does not reset after making a order either.
+  
+  I think this code could be more DRY and divided into more components and make GuestHome,UserHome,AdminHome(s) into veiws instead of components?.
+  Instead make components like fetchBooks? which instead is a child component to the views GuestView, UserView, AdminVeiw? Not sure. 
+ 
+  
+
+  orderquantity på andra böcker resetas vid placeorder(i fetchBooks)
  -->
 
 
@@ -79,6 +91,7 @@ export default {
           this.books = response.data.books as Book[];
           this.books.forEach((book: Book) => {
             book.orderQuantity = 0;
+            // här resetas de
           })
         })
         .catch(error => {

@@ -2,10 +2,10 @@
         event.preventDefault(); This is to prevent the site to reload after @submit login
 
         Takes the username and password from the fiels and checks it with the database via axios post request,
-        if it matches the role, username and jwt token
-        will be saved in the localstorage. and pushes via router to /home
+        if it matches, it returns a jwt token, that is decode here, This is the only place where it is decoded and role, username and token
+        will be saved in the localstorage. then pushes to /home
 
-        Need to add something when it does not match
+        Need to add something when it does not match, alert is fast n easy
 
  -->
 

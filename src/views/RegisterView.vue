@@ -1,3 +1,10 @@
+<!-- 
+
+  Same as loginView, see comment there
+
+ -->
+
+
 <template>
   <div class="container">
     <RegisterForm />

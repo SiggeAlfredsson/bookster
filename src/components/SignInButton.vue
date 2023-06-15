@@ -1,3 +1,10 @@
+<!-- 
+
+  Just a button with styling and a router link. Same as router.push.
+  Used as childcomponent in Header (component).
+  
+ -->
+
 <template>
   <router-link to="/login">
       <button class="sign-in-button">Sign in</button>

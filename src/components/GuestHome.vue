@@ -1,3 +1,11 @@
+<!-- 
+
+  Component that is shown if the user is NOT signed in, when the component is loaded, all the books are fetched from the api, in "mounted".
+  Search does not reset after making a order either.
+
+ -->
+
+
 <template>
   <div>
     <div class="book-list">
@@ -23,7 +31,7 @@
 
 <script lang="ts">
 import axios from 'axios';
-import SearchQuery from './SearchQuery.vue';
+// import SearchQuery from './SearchQuery.vue';
 
 interface Book {
   title: string;

@@ -1,3 +1,12 @@
+
+<!-- 
+
+    Header of website that is shown at ALL time. I put in in app.vue OK?
+    If there is a username in localStorage a sign out button is shown, else a sign in button is shown (if the path is /home)
+
+ -->
+
+
 <template>
   <header>
 

@@ -2,7 +2,16 @@
 
 <!-- -
 
-  It checks if
+  The parent the parent compnents..
+
+  Not 100 about the searchQuery implementation... will look up how it works more 
+  
+  Theres alot of v-if here. They decide what components to load. I have come to release that many of these "components", maybe should have been veiws instead..
+ 
+  Also two buttons to change beetween books and users when signed in as ADMIN , The pressed button is saved in a variable,
+  then using v-if to show the different components.
+
+  add book button will be removed and replace by a component(modal), and will be put in the AdminHomeBooks component instead of here
 
   Mounted > created bcs need to decide what to load before loading it .. 
 

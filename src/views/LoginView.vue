@@ -1,3 +1,9 @@
+<!-- 
+
+  Pretty much only loads the component? I guess this is not needed and the LoginForm should be LoginView instead .
+
+ -->
+
 <template>
   <div class="container">
     <LoginForm />

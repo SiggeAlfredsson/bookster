@@ -1,3 +1,10 @@
+<!-- 
+
+  Button to sign out, removes every "user" data saved in localStorage and then reloads the page.
+  Used as childcomponent in Header (component).
+
+ -->
+
 <template>
   <button class="sign-out-button" @click="signOut">Sign Out</button>
 </template>
