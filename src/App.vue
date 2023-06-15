@@ -9,10 +9,9 @@ import HeaderComponent from "./components/Header.vue"
 </script>
 
 <template>
-  <header>
+  
   <HeaderComponent/> 
   <!-- OK? -->
-  </header>
 
   <div v-if="$route.path === '/' ">
     <nav>

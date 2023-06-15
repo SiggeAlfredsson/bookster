@@ -134,6 +134,8 @@ export default {
             // location.reload();
             this.fetchBooks();
             // This updated the availability but the search q is still there while everything is showing
+
+            // response is a new fetch
           })
       }
     },
