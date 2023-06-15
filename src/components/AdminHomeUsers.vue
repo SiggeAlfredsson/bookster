@@ -35,7 +35,8 @@
 
 <script lang="ts">
 import axios from 'axios';
-import User from "@/model/User"
+import type User from "@/model/User"
+import { userService } from "@/service/UserService";
 
 
 
@@ -52,7 +53,6 @@ export default {
   data() {
     return {
       users: [] as User[],
-      // orderQuantity: 0,
     };
   },
   watch: {
@@ -69,15 +69,11 @@ export default {
   },
   methods: {
     fetchUsers() {
-      axios.get('http://localhost:3000/admin/users', { headers: {
-            Authorization: localStorage.getItem("accessToken")
-          }})
-        .then(response => {
-          this.users = response.data.users as User[];
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      userService.fetchUsers()
+      .then(users => {
+        this.users = users;
+      });
+      
     },
     searchBooks(query: string) {
           // make a search function of user in Users

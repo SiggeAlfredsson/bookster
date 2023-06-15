@@ -31,9 +31,10 @@
 
 <script lang="ts">
 import axios from 'axios';
-import Book from "@/model/Book";
+import type Book from "@/model/Book";
+import { bookService } from "@/service/BookService";
 
-// import SearchQuery from './SearchQuery.vue';
+
 
 
 export default {
@@ -65,24 +66,18 @@ export default {
   },
   methods: {
     fetchBooks() {
-      axios.get('http://localhost:3000/library/books')
-        .then(response => {
-          this.books = response.data.books as Book[];
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      bookService.fetchBooks()
+      .then(books  => {
+        this.books = books;
+      });
     },
     searchBooks(query: string) {
-      axios.get(`http://localhost:3000/library/books/search?q=${query}`)
-        .then(response => {
-          this.books = response.data.books as Book[];
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    },
-  },
+      bookService.searchBooks(query)
+      .then(books => {
+        this.books = books;
+      });
+    }
+  }
 };
 </script>
 

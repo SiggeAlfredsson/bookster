@@ -47,13 +47,12 @@
 
 <script lang="ts">
 import axios from 'axios';
-import Book from "@/model/Book";
-// import BookActionModal from './BookActionModal.vue';
+import type Book from "@/model/Book";
+import { bookService } from "@/service/BookService";
 
 
 export default {
   components: {
-    // BookActionModal
   },
   props: {
     searchQuery: {
@@ -64,7 +63,6 @@ export default {
   data() {
     return {
       books: [] as Book[],
-      // orderQuantity: 0,
     };
   },
   watch: {
@@ -81,28 +79,16 @@ export default {
   },
   methods: {
     fetchBooks() {
-      axios.get('http://localhost:3000/library/books')
-        .then(response => {
-          this.books = response.data.books as Book[];
-          this.books.forEach((book: Book) => {
-            book.orderQuantity = 0;
-          })
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      bookService.fetchBooks()
+      .then(books  => {
+        this.books = books;
+      });
     },
     searchBooks(query: string) {
-      axios.get(`http://localhost:3000/library/books/search?q=${query}`)
-        .then(response => {
-          this.books = response.data.books as Book[];
-          this.books.forEach((book: Book) => {
-            book.orderQuantity = 0;
-          })
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      bookService.searchBooks(query)
+      .then(books => {
+        this.books = books;
+      });
     },
     removeOrderQuantity(book: Book) {
       if (book.orderQuantity > 0) {
