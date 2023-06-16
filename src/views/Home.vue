@@ -1,4 +1,7 @@
 <template>
+
+  <TestModal/>
+
   <UserView v-if="roleValue === 'USER'" />
   <AdminView v-else-if="roleValue === 'ADMIN'" />
   <GuestView v-else />
@@ -10,12 +13,12 @@ import UserView from '@/views/UserView.vue'
 import AdminView from '@/views/AdminView.vue'
 
 
+
 export default {
   components: {
     GuestView,
     UserView,
-    AdminView
-
+    AdminView,
   },
   data() {
     return {

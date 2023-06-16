@@ -24,8 +24,9 @@
             <div class="user-role">{{ user.role }}</div>
             <div class="user-purchases">3 purchases</div>
             <div class="user-action">
-              <button class="promote-button" @click="promoteUser(user)">Promote</button>
-              <button class="delete-button" @click="deleteUser(user)">Delete</button>
+              <!-- These appears as buttons -->
+              <PromoteUserModal :user="user"/>
+              <DeleteUserModal :user="user"/>
 
             </div>
           </div>
@@ -38,12 +39,16 @@
 import type User from "@/model/User"
 import { userService } from "@/service/UserService";
 import SearchQuery from "./SearchQuery.vue";
+import PromoteUserModal from "./PromoteUserModal.vue";
+import DeleteUserModal from "./DeleteUserModal.vue";
 
 
 
 export default {
   components: {
-    SearchQuery
+    SearchQuery,
+    PromoteUserModal,
+    DeleteUserModal,
   },
   data() {
     return {
@@ -64,13 +69,7 @@ export default {
     searchUsers(query: string) {
           // make a search function of user in Users
           console.log(query)
-    },
-    promoteUser(user: User) {
-
-    },
-    deleteUser(user: User) {
-
-    },
+    }
   },
 };
 </script>

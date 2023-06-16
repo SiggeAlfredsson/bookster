@@ -5,13 +5,19 @@
     <button @click="setActiveButton('users')" :class="{ active: activeButton === 'users' }">Users</button>
   </nav>
 
-  <BookList v-if="activeButton === 'books'" />
+  <div v-if="activeButton === 'books'">
+    <AddBookModal/>
+    <BookList/>
+  </div>
+  
   <UserList v-if="activeButton === 'users'" />
 </template>
 
 <script lang="ts">
 import BookList from '@/components/BookList.vue';
 import UserList from '@/components/UserList.vue';
+import AddBookModal from '@/components/AddBookModal.vue';
+
 
 
 export default {
@@ -21,7 +27,9 @@ export default {
     }
   },
   components: {
-    BookList
+    BookList,
+    UserList,
+    AddBookModal,
   },
   methods: {
     setActiveButton(btn: string) {

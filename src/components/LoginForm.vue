@@ -24,23 +24,21 @@
       <p>No account? Sign up <router-link to="/register">here!</router-link></p>
       <button class="sign-in-button" type="submit">Sign in</button>
       <router-link to="/home">
-      <button class="guest-button">Proceed as guest user</button>
+        <button class="guest-button">Proceed as guest user</button>
       </router-link>
-      
+
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import axios from "axios";
 import router from "@/router";
 import jwt_decode from 'jwt-decode';
+import { userService } from "@/service/UserService";
+import type DecodedToken from "@/model/DecodedToken";
 
 
-interface DecodedToken {
-  role: string;
-  username: string;
-}
+
 
 export default {
   data() {
@@ -48,7 +46,6 @@ export default {
       username: "",
       password: "",
       decodedToken: {} as DecodedToken // empty DecodedToken object
-
     };
   },
   methods: {
@@ -57,30 +54,23 @@ export default {
 
 
       try {
-        const response = await axios.post("http://localhost:3000/auth/login", {
-          username: this.username,
-          password: this.password
-        });
-
-        const accessToken = response.data.accessToken;
+        const accessToken = await userService.loginUser(this.username, this.password);
 
         localStorage.setItem("accessToken", accessToken);
 
         if (accessToken) {
           this.decodedToken = jwt_decode<DecodedToken>(accessToken);
-          localStorage.setItem("username", this.decodedToken.username)
-          localStorage.setItem("role", this.decodedToken.role)
+          localStorage.setItem("username", this.decodedToken.username);
+          localStorage.setItem("role", this.decodedToken.role);
         }
 
-        // location.reload();
-
-        router.push("/home")
-
-
+        router.push("/home");
       } catch (error) {
+        alert("Invalid username or password");
         this.password = "";
-        console.error(error);
       }
+
+
     }
   }
 };
@@ -97,7 +87,7 @@ export default {
   align-items: center;
 
   background-color: lightgray;
-  
+
 }
 
 header {
@@ -179,6 +169,4 @@ header {
 #username {
   margin-bottom: 30px;
 }
-
-
 </style>

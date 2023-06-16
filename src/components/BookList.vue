@@ -25,8 +25,9 @@
             <button class="place-order-button" @click="placeOrder(book)">Order</button>
           </div>
           <div class="book-action" v-if="getLocalStorage('role') === 'ADMIN'">
-            <button class="edit-button" @click="editBook(book)">Edit</button>
-            <button class="delete-button" @click="deleteBook(book)">Delete</button>
+            <!-- Both these appears as buttons -->
+            <EditBookModal :book="book"/>
+            <DeleteBookModal :book="book"/>
           </div>
         </div>
 
@@ -40,10 +41,14 @@ import axios from "axios"; //remove later
 import type Book from "@/model/Book";
 import { bookService } from "@/service/BookService";
 import SearchQuery from "./SearchQuery.vue";
+import EditBookModal from '@/components/EditBookModal.vue';
+import DeleteBookModal from '@/components/DeleteBookModal.vue';
 
 export default {
   components: {
-    SearchQuery
+    SearchQuery,
+    EditBookModal,
+    DeleteBookModal,
   },
   data() {
     return {
@@ -80,20 +85,10 @@ export default {
     },
     placeOrder(book: Book) {
       if (book.orderQuantity <= book.quantity && book.quantity > 0) {
-        axios.post("http://localhost:3000/library/user/books", {
-          title: book.title,
-          quantity: book.orderQuantity
-        }, {
-          headers: {
-            Authorization: localStorage.getItem("accessToken")
-          }
+        bookService.placeOrder(book)
+        .then(books => {
+          this.books = books;
         })
-          .then(response => {
-            // console.log(book.)
-            // location.reload();
-            this.fetchBooks();
-            // This updated the availability but the search q is still there while everything is showing
-          })
       }
     },
     editBook(book: Book) {

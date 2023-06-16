@@ -24,13 +24,15 @@
 
 <script lang="ts">
 import router from "@/router";
-import axios from "axios";
+import { userService } from "@/service/UserService";
+
 
 export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      
     };
   },
   methods: {
@@ -38,13 +40,12 @@ export default {
       event.preventDefault();
 
       try {
-        const response = await axios.post("http://localhost:3000/auth/register", {
-          username: this.username,
-          password: this.password
-        });
+        userService.registerUser(this.username, this.password);
+        
         alert("Account created");
         router.push("/login");
       } catch (error) {
+        alert("Failed to create account")
         console.error(error);
       }
     }
