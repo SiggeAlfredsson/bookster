@@ -1,26 +1,41 @@
 <!-- 
 
-  Just a text input, a search bar to display when able to search, either books or users.
-
-  GPT helped me a little to make emotSearchQuery work.. OK or redo not 100 how it works atm?
+  Just a text input, a search bar to display when able to search, either books or users. Anything you want !
+  With a timeout to keep the api calls to the low. Search instant when pressing enter
 
  -->
 
 <template>
-  <input class="input" type="text" placeholder="Search query..." v-model="query" @input="emitSearchQuery">
+  <input class="input" type="text" placeholder="Search query..." v-model="query" @input="handleInput" @keydown.enter="search">
 </template>
 
-<!-- Need to add timer, check weather app project -->
 <script lang="ts">
 export default {
   data() {
     return {
       query: '',
+      timeout: null as number | null
     };
   },
   methods: {
-    emitSearchQuery() {
-      this.$emit('searchQueryUpdated', this.query);
+    handleInput() {
+      if (this.timeout !== null) {
+        clearTimeout(this.timeout);
+      }
+      this.timeout = setTimeout(() => {
+        this.search();
+      }, 2000) as number;
+    },
+    search() {
+      if (this.timeout !== null) {
+        clearTimeout(this.timeout);
+      }
+      // console.log(this.city)
+
+      this.$emit('search', this.query);
+
+
+
     },
   },
 };
@@ -28,7 +43,6 @@ export default {
 
 
 <style scoped>
-
 .input {
   height: 40px;
   width: 300px;
@@ -40,7 +54,4 @@ export default {
   padding-left: 30px;
   font-size: 25px;
 }
-
-
-
 </style>

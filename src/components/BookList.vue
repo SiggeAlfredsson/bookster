@@ -1,83 +1,62 @@
-<!-- 
+<template>
 
-  Same as UserHome....but also loads additional column for BookActionModal with two buttons to show modals,
-  Will add a child component to add new book (also a modal).
-  The modal(s) is under construction..
-  
-  
+  <SearchQuery @search="searchBooks"/>
 
- -->
-
-
- <template>
-  <div>
-    <!-- <BookActionModal/> -->
-    <div class="book-list">
-      <ul>
-        <!-- Making the titles the same way im making the list, OK to have same class on two divs? -->
-        <div class="column-titles">
-          <div class="book-title">Title</div>
-          <div class="book-author">Author</div>
-          <div class="book-availability">Availability</div>
-          <div class="book-order">Order</div>
-          <div class="book-action">Action</div>
-        </div>
-        <li v-for="book in books" >
-          <div class="book-info">
-            <div class="book-title">{{ book.title }}</div>
-            <div class="book-author">{{ book.author }}</div>
-            <div class="book-availability" v-if="book.quantity > 0">{{ book.quantity }} left</div>
-            <div class="book-availability" v-else>Out of stock</div>
-            <div class="book-order">
-              <button class="remove-button" @click="removeOrderQuantity(book)">-</button>
-              <input class="number-input" type="number" v-model="book.orderQuantity" readonly>
-              <button class="add-button" @click="addOrderQuantity(book)">+</button>
-              <button class="place-order-button" @click="placeOrder(book)">Order</button>
-            </div>
-            <div class="book-action">
-              <button class="edit-button" @click="editBook(book)">Edit</button>
-              <button class="delete-button" @click="deleteBook(book)">Delete</button>
-            </div>
+  <div class="book-list">
+    <ul>
+      <!-- Making the titles the same way im making the list, OK to have same class on two divs? -->
+      <div class="column-titles">
+        <div class="book-title">Title</div>
+        <div class="book-author">Author</div>
+        <div class="book-availability">Availability</div>
+        <div class="book-order" v-if="getLocalStorage('role') === 'USER' || getLocalStorage('role') === 'ADMIN'" >Order</div>
+        <div class="book-action" v-if="getLocalStorage('role') === 'ADMIN'" >Action</div>
+      </div>
+      <li v-for="book in books">
+        <div class="book-info">
+          <div class="book-title">{{ book.title }}</div>
+          <div class="book-author">{{ book.author }}</div>
+          <div class="book-availability" v-if="book.quantity > 0">{{ book.quantity }} left</div>
+          <div class="book-availability" v-else>Out of stock</div>
+          <div class="book-order" v-if="getLocalStorage('role') === 'USER' || getLocalStorage('role') === 'ADMIN'">
+            <button class="remove-button" @click="removeOrderQuantity(book)">-</button>
+            <input class="number-input" type="number" v-model="book.orderQuantity" readonly>
+            <button class="add-button" @click="addOrderQuantity(book)">+</button>
+            <button class="place-order-button" @click="placeOrder(book)">Order</button>
           </div>
-        </li>
-      </ul>
-    </div>
+          <div class="book-action" v-if="getLocalStorage('role') === 'ADMIN'">
+            <button class="edit-button" @click="editBook(book)">Edit</button>
+            <button class="delete-button" @click="deleteBook(book)">Delete</button>
+          </div>
+        </div>
+
+      </li>
+    </ul>
   </div>
 </template>
 
 <script lang="ts">
-import axios from 'axios';
+import axios from "axios"; //remove later
 import type Book from "@/model/Book";
 import { bookService } from "@/service/BookService";
-
+import SearchQuery from "./SearchQuery.vue";
 
 export default {
   components: {
-  },
-  props: {
-    searchQuery: {
-      type: String,
-      default: '',
-    },
+    SearchQuery
   },
   data() {
     return {
       books: [] as Book[],
     };
   },
-  watch: {
-    searchQuery(newQ: string) {
-      if (newQ !== "") {
-        this.searchBooks(newQ);
-      } else {
-        this.fetchBooks();
-      }
-    }
-  },
   mounted() {
     this.fetchBooks();
   },
   methods: {
+    getLocalStorage(key: string): string | null {
+      return localStorage.getItem(key);
+    },
     fetchBooks() {
       bookService.fetchBooks()
       .then(books  => {
