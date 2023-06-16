@@ -1,6 +1,7 @@
 <!-- 
 
-  This started as a copy of UserHome component, so the implementation is really alike. Insted of book, there is user.
+  User list component. Loads in every user from the api and display in Columns and rows.
+  Can only be shown when signed in as ADMIN .
 
  -->
 

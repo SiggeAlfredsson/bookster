@@ -1,8 +1,9 @@
 <!-- 
 
-  Guest or user view?
-
+  This view is showed when at /home and signed in as USER
+  A view that displays the bookList component. 
  -->
+ 
 
 
 <template>

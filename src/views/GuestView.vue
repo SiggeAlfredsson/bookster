@@ -1,6 +1,7 @@
 <!-- 
 
-  Guest or user view?
+  This view is showed when at /home and NOT signed in
+  A view that displays the bookList component. 
 
  -->
 

@@ -1,3 +1,6 @@
+// All code that have with books to do. Every api request to the server about BOOK is in here.
+// Could move interface to model instead of here
+
 import axios from "axios";
 import type Book from "@/model/Book";
 

@@ -1,3 +1,9 @@
+<!-- 
+
+  Modal to delete an existing user. Is only shown when pressing delete in the UserList. (can only do when signed in as admin)
+
+ -->
+
 <template>
 
   <button @click="isOpen = true">Delete</button>

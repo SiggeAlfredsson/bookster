@@ -1,3 +1,6 @@
+// All code that have with user to do. Every api request to the server about USER is in here.
+
+
 import axios from "axios";
 import type User from "@/model/User";
 

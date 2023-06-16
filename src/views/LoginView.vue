@@ -1,6 +1,6 @@
 <!-- 
 
-  Pretty much only loads the component? I guess this is not needed and the LoginForm should be LoginView instead .
+  Pretty much only loads the component? Could make the form a view instead? or split form up into smaller components?
 
  -->
 

@@ -1,3 +1,12 @@
+<!-- 
+
+  View that is showed in /home
+  Checks the localstorage what the role is equal too, then shows the correct view depending on the role.
+  Shows guest if USER or ADMIN do not match.
+  Split into 3 views for easier scaling in future.
+
+ -->
+
 <template>
 
   <TestModal/>

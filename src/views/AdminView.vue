@@ -1,3 +1,10 @@
+<!-- 
+
+    View that is shown when at /home and signed in as ADMIN.
+    2 toggle buttons to 2 different components. Only show the one that is pressed, books is the standard active button.
+
+ -->
+
 <template>
   <nav>
     <!-- Make to component? -->

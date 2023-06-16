@@ -1,8 +1,8 @@
 <!-- 
 
-  Same as loginView, see comment there
+  Pretty much only loads the component? Could make the form a view instead? or split form up into smaller components?
 
- -->
+-->
 
 
 <template>

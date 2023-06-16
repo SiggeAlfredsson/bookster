@@ -1,3 +1,9 @@
+<!-- 
+
+  Modal to delete an existing book. Is only shown when pressing delete in the BookList. (can only do when signed in as admin).
+
+ -->
+
 <template>
 
   <button @click="isOpen = true">Delete</button>

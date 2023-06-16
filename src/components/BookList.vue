@@ -1,3 +1,11 @@
+<!-- 
+
+  Book list component. Loads in every book from the api and display in Columns and rows.
+  If signed in as USER or ADMIN, also show the div book-order , that allows the user to place orders on books.
+  If signed in as ADMIN you get access to book-action div that lets the admin to edit or delete books.
+
+ -->
+
 <template>
 
   <SearchQuery @search="searchBooks"/>

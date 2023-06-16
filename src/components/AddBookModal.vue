@@ -1,3 +1,9 @@
+<!-- 
+
+  Modal to add an book. Is only shown when pressing add in the AdminView view. (can only do when signed in as admin).
+
+ -->
+
 <template>
   <button @click="isOpen = true">Add new book</button>
 
