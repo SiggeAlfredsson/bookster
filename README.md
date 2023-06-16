@@ -10,3 +10,4 @@ What to do:
 - Add some kind of filter to Login/Register view when already signed in.
 - Css for modals
 - Modals need to return the api answer (new list of user/books), Most of service functions returns the list, but it gets left in the modal and does not make it back to update the list.
+- User-purchases is not implemented, always shows 3 atm
