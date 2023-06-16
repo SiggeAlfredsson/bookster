@@ -7,5 +7,5 @@ Known bugs:
 - Site does not scale at all.
 
 What to do:
-- Modals
 - Add some kind of filter to Login/Register view when already signed in.
+- Css for modals
