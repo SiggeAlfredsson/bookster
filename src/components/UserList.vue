@@ -7,33 +7,32 @@
 
 
 <template>
+  <searchQuery @search="searchUsers" />
 
-<searchQuery @search="searchUsers"/>
+  <div class="user-list">
+    <ul>
+      <!-- Making the titles the same way im making the list, OK to have same class on two divs? -->
+      <div class="column-titles">
+        <div class="user-username">Username</div>
+        <div class="user-role">Role</div>
+        <div class="user-purchases">Purchases</div>
+        <div class="user-action">Action</div>
+      </div>
+      <li v-for="user in searchedUsers">
+        <div class="user-info">
+          <div class="user-username">{{ user.username }}</div>
+          <div class="user-role">{{ user.role }}</div>
+          <div class="user-purchases">3 purchases</div>
+          <div class="user-action">
+            <!-- These appears as buttons -->
+            <PromoteUserModal :user="user" />
+            <DeleteUserModal :user="user" />
 
-    <div class="user-list">
-      <ul>
-        <!-- Making the titles the same way im making the list, OK to have same class on two divs? -->
-        <div class="column-titles">
-          <div class="user-username">Username</div>
-          <div class="user-role">Role</div>
-          <div class="user-purchases">Purchases</div>
-          <div class="user-action">Action</div>
-        </div>
-        <li v-for="user in users">
-          <div class="user-info">
-            <div class="user-username">{{ user.username }}</div>
-            <div class="user-role">{{ user.role }}</div>
-            <div class="user-purchases">3 purchases</div>
-            <div class="user-action">
-              <!-- These appears as buttons -->
-              <PromoteUserModal :user="user"/>
-              <DeleteUserModal :user="user"/>
-
-            </div>
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
@@ -54,6 +53,7 @@ export default {
   data() {
     return {
       users: [] as User[],
+      searchedUsers: [] as User[],
     };
   },
   mounted() {
@@ -62,17 +62,23 @@ export default {
   methods: {
     fetchUsers() {
       userService.fetchUsers()
-      .then(users => {
-        this.users = users;
-      });
-      
+        .then(users => {
+          this.users = users;
+          this.searchedUsers = users;
+        });
+
     },
     searchUsers(query: string) {
-          // make a search function of user in Users
-          console.log(query)
-    }
-  },
-};
+      if (query) {
+        this.searchedUsers = this.users.filter(user =>
+          user.username.toLowerCase().includes(query.toLowerCase())
+        );
+      } else {
+        this.searchedUsers = this.users; // Reset filteredUsers if query is empty
+      }
+    },
+  }
+  };
 </script>
 
 <style scoped>
@@ -120,6 +126,4 @@ export default {
   color: white;
   font-weight: light;
 }
-
- 
 </style>
